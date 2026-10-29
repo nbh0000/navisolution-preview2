@@ -1,4 +1,4 @@
-# 나비솔루션 공개 디자인 미리보기
+# Harisu Company Dream 공개 디자인 미리보기
 
 https://nbh0000.github.io/navisolution-preview2/
 
