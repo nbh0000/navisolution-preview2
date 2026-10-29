@@ -1,0 +1,4 @@
+
+.pages-preview-note{padding:14px 18px;margin:0 0 24px;border:1px solid #d6dfd4;border-radius:10px;background:#edf3e9;color:#354a3e;font:400 14px/1.8 var(--font);word-break:keep-all;max-width:75ch}
+.footer .pages-preview-note{max-width:none;margin-bottom:28px;font-size:12px}
+[data-preview-form] :disabled{cursor:not-allowed}
