@@ -118,7 +118,7 @@
 
 /* 참여 업소 혜택 — 정원 사진 위 짙은 녹색 */
 .rf-benefits { border:0; box-shadow:0 30px 60px -40px rgba(20,50,38,.55); }
-.rf-benefits::before { background:linear-gradient(110deg,rgba(26,64,50,.95) 0%,rgba(33,82,64,.88) 55%,rgba(48,96,72,.74) 100%),url('/navisolution-preview2/assets/img/section/garden-haze.webp') center/cover; }
+.rf-benefits::before { background:linear-gradient(110deg,rgba(26,64,50,.96) 0%,rgba(31,76,59,.92) 55%,rgba(38,86,66,.88) 100%),url('/navisolution-preview2/assets/img/section/garden-haze.webp') center/cover; }
 .rf-benefits>div { padding:36px 36px 38px; }
 .rf-benefits>div+div { border-left-color:rgba(255,255,255,.13); }
 .rf-benefits h3 { color:#f3f0e2; font-size:24px; }
@@ -174,17 +174,33 @@
 .x-page--navi .a-support-photo img { border-radius:22px; box-shadow:0 26px 50px -36px rgba(36,64,52,.55); }
 
 .nv-benefits { padding-block:8px 72px; }
-.nv-benefits__panel { grid-template-columns:minmax(0,.85fr) repeat(3,minmax(0,1fr)); margin:0; }
-.nv-benefits__panel h2 { margin:0; padding:36px 36px 38px; color:#fff !important; font:400 30px/1.4 var(--display) !important; }
+/* 혜택 — 왼쪽 식탁 사진 위 제목, 오른쪽 세 줄 */
+.nv-benefits__panel { position:relative; isolation:isolate; overflow:hidden; display:grid; grid-template-columns:minmax(260px,.8fr) minmax(0,2fr); border-radius:26px; background:#1f4a3a; box-shadow:0 34px 70px -46px rgba(20,50,38,.7); }
+.nv-benefits__panel::before { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(100deg,rgba(28,66,51,.96),rgba(31,72,56,.93)),url('/navisolution-preview2/assets/img/section/garden-haze.webp') center/cover; }
+.nv-benefits__photo { position:relative; display:flex; align-items:flex-end; min-height:100%; padding:32px 34px; overflow:hidden; }
+.nv-benefits__photo img { position:absolute; inset:0; z-index:-1; width:100%; height:100%; object-fit:cover; object-position:40% 50%; }
+.nv-benefits__photo::after { content:''; position:absolute; inset:0; z-index:0; background:linear-gradient(180deg,rgba(20,44,34,.05) 30%,rgba(20,44,34,.82) 100%),linear-gradient(90deg,transparent 70%,rgba(28,66,51,.9)); }
+.nv-benefits__photo h2 { position:relative; z-index:1; margin:0; color:#fbf8ee !important; font:400 clamp(26px,2.4vw,32px)/1.35 var(--display) !important; white-space:nowrap; }
+.nv-benefits__rows { padding:10px clamp(28px,3.4vw,48px); }
+.nv-benefits__row { display:grid; grid-template-columns:minmax(150px,.7fr) minmax(0,2fr); align-items:baseline; gap:24px; padding:26px 0; }
+.nv-benefits__row+.nv-benefits__row { border-top:1px solid rgba(255,255,255,.12); }
+.nv-benefits__row h3 { margin:0; color:#f3f0e2; font:400 22px/1.4 var(--display); }
+.nv-benefits__row ul { display:flex; flex-wrap:wrap; gap:8px 26px; margin:0; padding:0; list-style:none; }
+.nv-benefits__row li { position:relative; padding-left:22px; color:rgba(236,242,232,.86); font-size:15px; line-height:1.7; word-break:keep-all; }
+.nv-benefits__row li::before { content:''; position:absolute; left:2px; top:.52em; width:10px; height:6px; border:solid #b9d6ad; border-width:0 0 1.6px 1.6px; transform:rotate(-45deg); }
 
-.x-page--navi .x-business__services { padding:4px 40px; border:1px solid rgba(36,87,68,.12); border-radius:24px; background:rgba(255,255,255,.74); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); box-shadow:0 30px 60px -48px rgba(36,64,52,.5); }
-.x-page--navi .x-business__service { border-color:rgba(36,87,68,.1); }
-.x-page--navi .x-business__service:first-child { border-top:0; }
-.x-page--navi .x-business__service:last-child { border-bottom:0; }
-.x-page--navi .x-business__service dt strong { color:var(--garden); }
-.x-page--navi .x-business__status { display:inline-flex; align-items:center; gap:8px; margin-top:10px; padding:0; background:none; border:0; border-radius:0; color:var(--harvest); font-size:13px; font-weight:500; }
+/* 공동구매·권리수익 — 나란히 놓인 네 가지 준비 항목 */
+.x-page--navi .x-business__services { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; padding:0; border:0; background:none; box-shadow:none; }
+.x-page--navi .x-business__services>.x-business__service { display:flex; flex-direction:column; gap:0; padding:30px 32px 32px; border:1px solid rgba(36,87,68,.11); border-radius:22px; background:rgba(255,255,255,.8); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); box-shadow:0 26px 50px -42px rgba(36,64,52,.55); }
+.x-page--navi .x-business__service dt { display:flex; flex-direction:column; }
+.x-page--navi .x-business__service dt strong { order:2; margin:0; color:var(--garden); font:600 21px/1.5 var(--font); word-break:keep-all; }
+.x-page--navi .x-business__status { order:1; display:inline-flex; align-self:flex-start; align-items:center; gap:8px; margin:0 0 14px; padding:0; background:none; border:0; border-radius:0; color:var(--harvest); font-size:13px; font-weight:500; }
 .x-page--navi .x-business__status::before { content:''; width:6px; height:6px; border-radius:50%; background:currentColor; opacity:.7; }
-.x-page--navi .x-business__empty { background:rgba(245,236,214,.45); border:1px dashed var(--harvest-line); border-radius:14px; }
+.x-page--navi .x-business__service dd { display:flex; flex-direction:column; flex:1; margin:14px 0 0; padding-top:16px; border-top:1px solid rgba(36,87,68,.09); }
+.x-page--navi .x-business__service dd p { font-size:15px; line-height:1.85; color:var(--g700); word-break:keep-all; }
+.x-page--navi .x-business__service dd p+p { margin-top:10px; color:var(--g500); font-size:14px; }
+.x-page--navi .x-business__service dd .x-business__empty { margin-top:auto; padding:13px 16px; background:rgba(245,236,214,.5); border:1px solid var(--harvest-line); border-radius:12px; color:var(--harvest); font-size:13px; }
+.x-page--navi .x-business__service dd p+.x-business__empty { margin-top:18px; }
 
 /* 이야기 — 주방 사진 위 문장 */
 .nv-story { padding-block:24px 72px; }
@@ -215,13 +231,14 @@
 }
 .x-page--navi .x-page-nav a:active { background:var(--garden-soft); }
 @media (max-width:1099px) {
-  .nv-benefits__panel { grid-template-columns:repeat(3,minmax(0,1fr)); }
-  .nv-benefits__panel h2 { grid-column:1 / -1; padding-bottom:0; }
-  .nv-benefits__panel h2+div { border-left:0; }
+  .nv-benefits__panel { grid-template-columns:minmax(220px,.7fr) minmax(0,2fr); }
+  .nv-benefits__row { grid-template-columns:1fr; gap:10px; padding:22px 0; }
 }
 @media (max-width:899px) {
   .nv-benefits__panel { grid-template-columns:1fr; }
-  .nv-benefits__panel h2+div { border-top:0; }
+  .nv-benefits__photo { min-height:200px; }
+  .nv-benefits__photo::after { background:linear-gradient(180deg,rgba(20,44,34,.05) 20%,rgba(20,44,34,.85) 100%); }
+  .x-page--navi .x-business__services { grid-template-columns:1fr; gap:14px; }
   .nv-story__frame { min-height:0; }
   .nv-story__frame::before { background:linear-gradient(180deg,rgba(18,30,24,.55) 0%,rgba(18,30,24,.86) 60%,rgba(18,30,24,.92) 100%); }
   .nv-story__pillars { grid-template-columns:1fr 1fr; row-gap:4px; }
@@ -231,11 +248,18 @@
   .x-page--navi .a-join { padding-block:36px 44px; }
   .x-page--navi .x-page-nav { width:auto; overflow-x:auto; scrollbar-width:none; flex-wrap:nowrap; }
   .x-page--navi .x-page-nav a { flex:none; padding:0 12px; font-size:13px; }
-  .x-page--navi .x-support__list,.x-page--navi .x-faq__list,.x-page--navi .x-business__services { padding:2px 20px; border-radius:20px; }
+  .x-page--navi .x-support__list,.x-page--navi .x-faq__list { padding:2px 20px; border-radius:20px; }
+  .x-page--navi .x-business__services>.x-business__service { padding:22px 20px 24px; border-radius:18px; }
+  .x-page--navi .x-business__service dt strong { font-size:19px; }
   .x-page--navi .x-support__item summary .support-icon { width:52px; height:52px; }
   .x-page--navi .x-support__list .sentence-copy { margin-left:64px; }
   .nv-benefits { padding-bottom:48px; }
-  .nv-benefits__panel h2 { padding:26px 22px 0; font-size:25px !important; }
+  .nv-benefits__panel { border-radius:20px; }
+  .nv-benefits__photo { min-height:160px; padding:22px; }
+  .nv-benefits__photo h2 { font-size:25px !important; }
+  .nv-benefits__rows { padding:4px 22px 8px; }
+  .nv-benefits__row ul { flex-direction:column; gap:6px; }
+  .nv-benefits__row li { font-size:14px; }
   .nv-story { padding-bottom:48px; }
   .nv-story__frame { gap:32px; padding:28px 22px; border-radius:20px; }
   .nv-story__lead { font-size:16px; }
