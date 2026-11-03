@@ -384,3 +384,122 @@ html { background:var(--paper); }
   .rv-ready .rv,.rv-ready .rv:not(.is-in) { translate:none !important; scale:none !important; filter:none !important; }
   .rv-ready .rv { transition:opacity .3s linear; transition-delay:0s; }
 }
+
+/* ── 로그인·회원가입 — 왼쪽 매장 사진, 오른쪽 유리판 양식 ───────────── */
+.auth { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,480px); gap:clamp(20px,3vw,40px); align-items:stretch; max-width:1160px; padding-top:clamp(8px,2vw,24px); padding-bottom:clamp(48px,6vw,88px); }
+.auth--wide { grid-template-columns:minmax(0,.9fr) minmax(0,600px); }
+.auth__visual { position:relative; isolation:isolate; overflow:hidden; min-height:clamp(520px,64svh,680px); margin:0; border-radius:28px; box-shadow:0 34px 70px -50px rgba(30,56,44,.7); }
+.auth--wide .auth__visual { position:sticky; top:112px; align-self:start; height:min(660px,calc(100svh - 140px)); min-height:480px; }
+.auth--wide .auth__visual img { object-position:28% 50%; }
+.auth__visual img { position:absolute; inset:0; z-index:-2; width:100%; height:100%; object-fit:cover; object-position:50% 55%; }
+.auth__visual::after { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg,rgba(18,40,31,0) 38%,rgba(18,40,31,.5) 66%,rgba(18,40,31,.84) 100%); }
+.auth__visual figcaption { position:absolute; left:clamp(24px,3vw,40px); right:24px; bottom:clamp(24px,3vw,36px); color:#f6f3e8; font:400 clamp(21px,1.8vw,26px)/1.55 var(--display); letter-spacing:-.01em; text-wrap:balance; }
+.auth__panel { align-self:center; padding:clamp(28px,3.4vw,46px); border:1px solid rgba(36,87,68,.1); border-radius:28px; background:rgba(255,255,255,.86); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px); box-shadow:0 34px 70px -54px rgba(30,56,44,.6); }
+.auth__title { margin:0 0 26px; color:var(--garden); font:400 clamp(28px,2.4vw,34px)/1.35 var(--display); letter-spacing:-.02em; }
+.auth__lead { margin:-16px 0 26px; color:var(--g700); font-size:15px; line-height:1.8; }
+.auth .stack>*+* { margin-top:18px; }
+.auth .label { margin-bottom:8px; color:var(--g900,#252d29); font-size:14px; font-weight:500; }
+.auth .input { height:52px; min-height:52px; padding-inline:16px; border:1px solid rgba(36,87,68,.2); border-radius:12px; background:#fff; font-size:16px; transition:border-color .18s ease, box-shadow .18s ease; }
+.auth .input:focus { border-color:var(--garden); box-shadow:0 0 0 4px rgba(36,87,68,.1); outline:0; }
+.auth .help { display:block; margin-top:7px; color:var(--g500); font-size:12.5px; }
+.auth__pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px 14px; }
+.auth__pair>.field { margin:0 !important; }
+.auth__agree { padding:18px 20px; border:1px solid rgba(36,87,68,.12); border-radius:14px; background:rgba(234,241,231,.6); }
+.auth__agree .check--strong { padding-bottom:12px; margin-bottom:10px; border-bottom:1px solid rgba(36,87,68,.12); }
+.auth__agree .check { font-size:14px; }
+.auth__agree input { accent-color:var(--garden); }
+.auth__submit { margin-top:26px !important; }
+.auth__submit .btn { height:54px; border-radius:12px; font-size:16px; }
+.auth__aside { margin-top:14px !important; text-align:right; font-size:13.5px; }
+.auth__aside a { color:var(--g700); text-decoration:underline; text-decoration-color:rgba(36,87,68,.3); text-underline-offset:4px; }
+.auth__switch { margin:28px 0 0; padding-top:22px; border-top:1px solid rgba(36,87,68,.12); color:var(--g700); font-size:14.5px; text-align:center; }
+.auth__switch a { margin-left:6px; color:var(--garden); font-weight:600; text-decoration:underline; text-decoration-color:rgba(36,87,68,.35); text-underline-offset:4px; }
+.auth .pages-preview-note { margin:0 0 22px; padding:12px 14px; font-size:13px; line-height:1.7; }
+.auth .alert { border-radius:12px; }
+@media (hover:hover) and (pointer:fine) {
+  .auth__aside a:hover,.auth__switch a:hover { color:var(--garden-hover,#1c4536); text-decoration-color:currentColor; }
+}
+@media (max-width:899px) {
+  .auth,.auth--wide { grid-template-columns:1fr; max-width:600px; gap:16px; }
+  .auth__visual,.auth--wide .auth__visual { position:relative; top:auto; height:auto; min-height:0; aspect-ratio:16/7; border-radius:22px; }
+  .auth__visual img { object-position:50% 50%; }
+  .auth__visual figcaption { font-size:19px; }
+  .auth__panel { align-self:stretch; border-radius:22px; }
+}
+@media (max-width:599px) {
+  .auth { padding-top:0; }
+  .auth__visual { aspect-ratio:16/8; border-radius:18px; }
+  .auth__visual figcaption { left:18px; bottom:16px; font-size:16px; }
+  .auth__panel { padding:24px 20px 26px; border-radius:18px; }
+  .auth__title { margin-bottom:20px; }
+  .auth__pair { grid-template-columns:1fr; }
+}
+@media (max-height:500px) and (orientation:landscape) {
+  .auth { grid-template-columns:1fr; }
+  .auth__visual { display:none; }
+}
+
+/* ── Harisu Mall 분류 — 그림 타일 대신 실사 사진. 묶음이 달라도 사진 칸 폭은 모두 같게(subgrid) ── */
+.mall-photo { display:block; width:100%; aspect-ratio:4/3; height:auto; object-fit:cover; border-radius:20px; transition:transform .6s cubic-bezier(.2,.8,.2,1); }
+.catalog-directory.mall-tiles { display:grid; gap:18px; margin-top:22px; border:0; }
+.catalog-directory.mall-tiles a { display:grid; grid-template-columns:minmax(0,1fr) auto; grid-template-rows:auto auto auto; align-content:start; gap:0 12px; min-height:0; padding:0; border:0; background:none; box-shadow:none; color:var(--g900,#252d29); text-align:left; }
+.mall-tiles a>.mall-photo,.mall-tiles a>.aisle-icon { grid-column:1/-1; margin-bottom:16px; }
+.mall-tiles a>span:first-child { grid-column:1/-1; overflow:hidden; border-radius:20px; }
+.mall-tiles strong { grid-column:1; font:600 17px/1.45 var(--font); letter-spacing:-.01em; }
+.mall-tiles span { grid-column:1; grid-row:auto; margin-top:3px; color:var(--g500); font-size:13.5px; }
+.mall-tiles .icon { display:block; grid-column:2; grid-row:2/4; align-self:center; width:18px; height:18px; color:var(--garden); transition:transform .25s ease; }
+.mall-tiles a { position:relative; isolation:isolate; }
+.mall-tiles a::before { content:''; position:absolute; inset:0 0 auto; z-index:1; aspect-ratio:4/3; border-radius:20px; box-shadow:inset 0 0 0 1px rgba(36,64,52,.06), 0 24px 44px -34px rgba(36,64,52,.6); pointer-events:none; }
+@media (hover:hover) and (pointer:fine) {
+  .mall-tiles a:hover .mall-photo { transform:scale(1.035); }
+  .mall-tiles a:hover strong { color:var(--garden); }
+  .mall-tiles a:hover .icon { transform:translateX(3px); }
+}
+.mall-tiles a:active .mall-photo { transform:scale(.985); }
+.mall-tiles a { -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
+/* 사진이 확대될 때 둥근 모서리 밖으로 나가지 않게 */
+.mall-tiles a { clip-path:inset(0 round 20px 20px 0 0); }
+
+@media (min-width:900px) {
+  .n-mall-groups { grid-template-columns:repeat(var(--mall-cols,4),minmax(0,1fr)); column-gap:18px; }
+  .n-mall-group { display:grid; grid-column:span var(--tiles); grid-template-columns:subgrid; align-content:start; }
+  .n-mall-group__head { grid-column:1/-1; }
+  .n-mall-group .catalog-directory.mall-tiles { grid-column:1/-1; grid-template-columns:subgrid; column-gap:18px; }
+}
+@media (min-width:600px) and (max-width:899px) {
+  .n-mall-group .catalog-directory.mall-tiles { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+@media (max-width:599px) {
+  /* 휴대폰: 옆으로 넘기는 사진 줄, 끝은 흐리게 */
+  .n-mall-group .catalog-directory.mall-tiles { display:grid; grid-auto-flow:column; grid-auto-columns:72%; grid-template-columns:none; gap:12px; margin-inline:calc(var(--gutter) * -1); padding-inline:var(--gutter); overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding-inline:var(--gutter); scrollbar-width:none; overscroll-behavior-x:contain; }
+  .n-mall-group .catalog-directory.mall-tiles::-webkit-scrollbar { display:none; }
+  .n-mall-group .catalog-directory.mall-tiles:has(> a:only-child) { grid-auto-columns:100%; }
+  .mall-tiles a { scroll-snap-align:start; }
+  .mall-photo,.mall-tiles a::before { border-radius:16px; }
+  .mall-tiles a { clip-path:inset(0 round 16px 16px 0 0); }
+  .mall-tiles strong { font-size:15.5px; }
+  .mall-tiles span { font-size:12.5px; }
+}
+@media (prefers-reduced-motion:reduce) { .mall-photo,.mall-tiles .icon { transition:none; } }
+
+/* ── 홈 업소 지원 — 작은 그림 대신 매장 실사 사진, 판 없이 사진 + 글 ── */
+.rf-support__steps--photo { gap:18px; overflow:visible; border:0; border-radius:0; background:none; -webkit-backdrop-filter:none; backdrop-filter:none; box-shadow:none; }
+.rf-support__steps--photo li,.rf-support__steps--photo li:last-child { display:block; grid-column:auto; padding:0; box-shadow:none; background:none; }
+.support-photo { display:block; width:100%; height:auto; aspect-ratio:4/3; margin:0 0 18px; object-fit:cover; border-radius:18px; box-shadow:inset 0 0 0 1px rgba(36,64,52,.06), 0 24px 44px -34px rgba(36,64,52,.6); }
+.rf-support__steps--photo h3 { margin:0 0 8px; color:var(--garden); font:600 17px/1.45 var(--font); }
+.rf-support__steps--photo p { font-size:14px; line-height:1.75; }
+@media (hover:hover) and (pointer:fine) {
+  .rf-support__steps--photo li:hover { background:none; box-shadow:none; }
+}
+@media (max-width:1099px) {
+  /* 태블릿·휴대폰: 옆으로 넘기는 줄 */
+  .rf-support__steps--photo { display:grid; grid-auto-flow:column; grid-auto-columns:clamp(220px,38%,300px); grid-template-columns:none; gap:16px; margin-inline:calc(var(--gutter) * -1); padding:0 var(--gutter) 4px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding-inline:var(--gutter); scrollbar-width:none; overscroll-behavior-x:contain; -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent); mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent); }
+  .rf-support__steps--photo::-webkit-scrollbar { display:none; }
+  .rf-support__steps--photo li { scroll-snap-align:start; }
+}
+@media (max-width:599px) {
+  .rf-support__steps--photo { grid-auto-columns:76%; gap:12px; margin-top:28px; }
+  .rf-support__steps--photo li,.rf-support__steps--photo li:last-child { display:block; padding:0; }
+  .support-photo { margin-bottom:14px; border-radius:16px; }
+  .rf-support__steps--photo h3 { font-size:16px; }
+}

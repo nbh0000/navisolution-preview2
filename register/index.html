@@ -21,7 +21,7 @@
 <link href="/navisolution-preview2/assets/css/rebuild.css?v=2c4967e6" rel="stylesheet"/>
 <link href="/navisolution-preview2/assets/css/aerial.css?v=0f156afc" rel="stylesheet"/>
 <link href="/navisolution-preview2/assets/css/shelf.css?v=ce5af682" rel="stylesheet"/>
-<link href="/navisolution-preview2/assets/css/refine.css?v=651b2e36" rel="stylesheet"/>
+<link href="/navisolution-preview2/assets/css/refine.css?v=0721e907" rel="stylesheet"/>
 <meta content="noindex,nofollow" name="robots"/><link href="/navisolution-preview2/assets/css/pages-preview.css" rel="stylesheet"/><script defer="" src="/navisolution-preview2/assets/js/pages-preview.js"></script></head>
 <body class="navi-rebuilt" data-tab="my">
 <svg aria-hidden="true" style="display:none" xmlns="http://www.w3.org/2000/svg">
@@ -71,25 +71,28 @@
 </div>
 </header>
 <main class="main" id="main" tabindex="-1">
-<div class="container container--narrow">
-<h1 class="page-title">회원가입</h1>
+<div class="container auth auth--wide">
+<figure class="auth__visual"><img alt="" decoding="async" height="1024" src="/navisolution-preview2/assets/img/rebuild/kitchen-community.webp" width="1536"/><figcaption>가입하면 밀키트를 주문하고<br/>파트너를 신청할 수 있습니다.</figcaption></figure>
+<div class="auth__panel">
+<h1 class="auth__title">회원가입</h1>
 <p class="pages-preview-note" role="note">공개 디자인 미리보기입니다. 개인정보 입력, 로그인, 주문·신청 접수는 지원하지 않습니다.</p><form action="#" class="stack" data-preview-form="" method="get" novalidate="">
  <label class="field"><span class="label">이메일 <span class="req">*</span></span><input autocomplete="email" class="input" disabled="" inputmode="email" name="email" required="" type="email" value=""/></label>
-<label class="field"><span class="label">비밀번호 <span class="req">*</span></span><input autocomplete="new-password" class="input" disabled="" name="password" required="" type="password" value=""/><span class="help">영문·숫자 포함 8자 이상</span></label>
-<label class="field"><span class="label">비밀번호 확인 <span class="req">*</span></span><input autocomplete="new-password" class="input" disabled="" name="password_confirm" required="" type="password" value=""/></label>
-<label class="field"><span class="label">이름 <span class="req">*</span></span><input autocomplete="name" class="input" disabled="" name="name" required="" type="text" value=""/></label>
-<label class="field"><span class="label">휴대폰 <span class="req">*</span></span><input autocomplete="tel" class="input" data-format="phone" disabled="" inputmode="numeric" name="phone" placeholder="010-0000-0000" required="" type="tel" value=""/></label>
-<div class="field form-box">
+<div class="auth__pair"><label class="field"><span class="label">비밀번호 <span class="req">*</span></span><input autocomplete="new-password" class="input" disabled="" name="password" required="" type="password" value=""/><span class="help">영문·숫자 포함 8자 이상</span></label>
+<label class="field"><span class="label">비밀번호 확인 <span class="req">*</span></span><input autocomplete="new-password" class="input" disabled="" name="password_confirm" required="" type="password" value=""/></label></div>
+<div class="auth__pair"><label class="field"><span class="label">이름 <span class="req">*</span></span><input autocomplete="name" class="input" disabled="" name="name" required="" type="text" value=""/></label>
+<label class="field"><span class="label">휴대폰 <span class="req">*</span></span><input autocomplete="tel" class="input" data-format="phone" disabled="" inputmode="numeric" name="phone" placeholder="010-0000-0000" required="" type="tel" value=""/></label></div>
+<div class="field form-box auth__agree">
 <label class="check check--strong"><input disabled="" id="agreeAll" type="checkbox"/> 전체 동의</label>
 <label class="check mt-8"><input class="agree" disabled="" name="agree_terms" type="checkbox" value="1"/> <span>[필수] <a href="/navisolution-preview2/terms/" style="text-decoration:underline" target="_blank">이용약관</a> 동의</span></label>
 <label class="check"><input class="agree" disabled="" name="agree_privacy" type="checkbox" value="1"/> <span>[필수] <a href="/navisolution-preview2/privacy/" style="text-decoration:underline" target="_blank">개인정보 수집·이용</a> 동의</span></label>
 </div>
-<div class="form-foot"><button class="btn btn--primary btn--block btn--lg" disabled="" type="submit">가입하기</button></div>
-<p class="center small mt-16 muted">이미 회원이신가요? <a href="/navisolution-preview2/login/" style="color:var(--black);font-weight:600">로그인</a></p>
+<div class="form-foot auth__submit"><button class="btn btn--primary btn--block btn--lg" disabled="" type="submit">가입하기</button></div>
 </form>
+<p class="auth__switch">이미 회원이신가요? <a href="/navisolution-preview2/login/">로그인</a></p>
 </div>
-<script>
-(function(){var all=document.getElementById('agreeAll'),cs=document.querySelectorAll('.agree');all.addEventListener('change',function(){cs.forEach(function(c){c.checked=all.checked;});});cs.forEach(function(c){c.addEventListener('change',function(){all.checked=[].every.call(cs,function(x){return x.checked;});});});})();
+</div>
+<script>
+(function(){var all=document.getElementById('agreeAll'),cs=document.querySelectorAll('.agree');all.addEventListener('change',function(){cs.forEach(function(c){c.checked=all.checked;});});cs.forEach(function(c){c.addEventListener('change',function(){all.checked=[].every.call(cs,function(x){return x.checked;});});});})();
 </script>
 </main>
 <footer class="footer">
