@@ -1,0 +1,264 @@
+/* 홈 섹션 다듬기 — 섹션마다 은은한 실사 바탕(www/navisolution-preview2/assets/img/section) 위에 반투명 톤만 얹는다. */
+.rf-band { position:relative; isolation:isolate; }
+.rf-band::before { content:''; position:absolute; inset:0; z-index:-1; background-size:cover; background-position:center; }
+.rf-band--linen::before { background-image:linear-gradient(180deg,rgba(252,252,250,.9) 0%,rgba(252,252,250,.55) 28%,rgba(252,252,250,.55) 72%,rgba(252,252,250,.92) 100%),url('/navisolution-preview2/assets/img/section/linen-leaves.webp'); }
+
+.rf-eyebrow { margin:0 0 14px; font-size:13px; font-weight:600; letter-spacing:.08em; color:var(--garden); }
+
+/* 업소 지원 */
+.rf-support { padding-top:calc(var(--section-space) + 8px); padding-bottom:calc(var(--section-space) + 8px); }
+.rf-support__top { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:64px; align-items:center; }
+.rf-support h2 { margin:0; font-size:34px; line-height:1.4; color:var(--garden); text-wrap:balance; }
+.rf-support .sentence-copy { margin-top:18px; }
+.rf-support .sentence-copy p { font-size:16px; }
+.rf-support .r-actions { margin-top:32px; }
+.rf-support__photo { position:relative; overflow:hidden; border-radius:24px; box-shadow:0 24px 48px -32px rgba(36,64,52,.45); }
+.rf-support__photo img { display:block; width:100%; height:auto; aspect-ratio:1.6; object-fit:cover; object-position:50% 45%; }
+
+.rf-support__steps { list-style:none; margin:56px 0 0; padding:0; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:14px; counter-reset:none; }
+.rf-support__steps li { position:relative; padding:26px 22px 24px; border:1px solid rgba(36,87,68,.12); border-radius:18px; background:rgba(255,255,255,.72); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+.rf-num { display:block; margin-bottom:22px; font:500 13px/1 var(--font); letter-spacing:.06em; color:var(--harvest); font-variant-numeric:tabular-nums; }
+.rf-num::after { content:''; display:block; width:20px; height:1px; margin-top:10px; background:currentColor; opacity:.5; }
+.rf-support__steps h3 { margin:0 0 10px; font:600 17px/1.4 var(--font); color:var(--black); }
+.rf-support__steps p { margin:0; font-size:14px; line-height:1.75; color:var(--g700); word-break:keep-all; }
+.rf-support__steps p+p { margin-top:2px; }
+
+.rf-benefits { position:relative; isolation:isolate; overflow:hidden; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin-top:20px; border-radius:22px; border:1px solid rgba(36,87,68,.14); }
+.rf-benefits::before { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(100deg,rgba(234,241,231,.86),rgba(246,248,240,.74)),url('/navisolution-preview2/assets/img/section/garden-haze.webp') center/cover; }
+.rf-benefits>div { padding:32px 34px 34px; }
+.rf-benefits>div+div { border-left:1px solid rgba(36,87,68,.14); }
+.rf-benefits h3 { margin:0 0 16px; font-family:var(--display); font-size:22px; font-weight:400; color:var(--garden); }
+.rf-benefits ul { display:grid; gap:9px; margin:0; padding:0; list-style:none; }
+.rf-benefits li { position:relative; padding-left:24px; font-size:14px; line-height:1.7; color:var(--g900); word-break:keep-all; }
+.rf-benefits li::before { content:''; position:absolute; left:2px; top:.5em; width:10px; height:6px; border:solid var(--garden); border-width:0 0 1.6px 1.6px; transform:rotate(-45deg); }
+
+@media (hover:hover) and (pointer:fine) {
+  .rf-support__steps li:hover { transform:translateY(-3px); border-color:rgba(36,87,68,.28); box-shadow:0 18px 34px -26px rgba(36,64,52,.5); }
+}
+@media (max-width:1099px) {
+  .rf-support__top { gap:40px; }
+  .rf-support__steps { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+@media (max-width:899px) {
+  .rf-support__top { grid-template-columns:1fr; gap:32px; }
+  .rf-support__steps { grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:36px; }
+  .rf-benefits { grid-template-columns:1fr; }
+  .rf-benefits>div+div { border-left:0; border-top:1px solid rgba(36,87,68,.14); }
+}
+@media (max-width:599px) {
+  .rf-support h2 { font-size:27px; }
+  .rf-support .sentence-copy p { font-size:15px; }
+  .rf-support .r-actions { margin-top:24px; }
+  .rf-support__photo { border-radius:18px; }
+  .rf-support__steps { grid-template-columns:1fr; gap:10px; margin-top:28px; }
+  .rf-support__steps li { display:grid; grid-template-columns:34px 1fr; column-gap:12px; padding:18px 18px 18px 16px; border-radius:16px; }
+  .rf-num { grid-row:1 / span 3; margin:3px 0 0; }
+  .rf-num::after { display:none; }
+  .rf-support__steps h3 { margin-bottom:6px; font-size:16px; }
+  .rf-benefits { margin-top:14px; border-radius:18px; }
+  .rf-benefits>div { padding:22px 20px 24px; }
+  .rf-benefits h3 { font-size:20px; margin-bottom:12px; }
+}
+@media (prefers-reduced-motion:reduce) { .rf-support__steps li { transition:none; } }
+
+.rf-support .rf-eyebrow { color:var(--garden); }
+.rf-band--stone::before { background-image:linear-gradient(180deg,rgba(252,252,250,.94) 0%,rgba(252,252,250,.62) 30%,rgba(252,252,250,.62) 70%,rgba(252,252,250,.94) 100%),url('/navisolution-preview2/assets/img/section/stone-warm.webp'); }
+.rf-band--wood::before { background-image:linear-gradient(180deg,rgba(252,252,250,.94) 0%,rgba(252,252,250,.6) 30%,rgba(252,252,250,.6) 70%,rgba(252,252,250,.96) 100%),url('/navisolution-preview2/assets/img/section/wood-morning.webp'); }
+
+/* 공동구매·권리수익 — 문장 카드는 옛 레시피 책 사진 위 */
+.rf-statement { position:relative; isolation:isolate; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; min-height:380px; padding:40px !important; border-radius:24px; background:#2a2620 !important; box-shadow:0 24px 48px -32px rgba(40,30,20,.6); }
+.rf-statement>img { position:absolute; inset:0; z-index:-2; width:100%; height:100%; object-fit:cover; object-position:78% 70%; }
+.rf-statement::before { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg,rgba(24,20,16,.05) 0%,rgba(24,20,16,.55) 55%,rgba(24,20,16,.82) 100%); }
+.rf-statement>p { color:#fbf6ea !important; font-size:28px !important; line-height:1.45; text-wrap:balance; }
+.rf-statement>span { display:block; margin-top:12px; color:rgba(251,246,234,.82); font-size:14px; line-height:1.8; }
+.rf-statement .text-link { margin-top:22px; color:#f3e3bf !important; }
+.r-business__list>div { transition:background-color .18s ease; }
+.r-business .section-heading h2 { color:var(--garden); }
+
+/* 개인 파트너 */
+.rf-band--wood .r-referral { border-top:0; }
+.rf-band--stone .r-business { border-top:0; }
+.rf-close .text-link { color:var(--garden); font-weight:600; }
+.rf-band--wood .r-referral img { border-radius:24px; box-shadow:0 26px 50px -34px rgba(70,40,60,.55); }
+.rf-band--wood .r-referral ul { list-style:none; padding-left:0; }
+.rf-band--wood .r-referral li { position:relative; padding-left:24px; }
+.rf-band--wood .r-referral li::before { content:''; position:absolute; left:2px; top:.55em; width:10px; height:6px; border:solid var(--partner); border-width:0 0 1.6px 1.6px; transform:rotate(-45deg); }
+
+/* 마지막 신청 띠 — 정원 사진 위 유리판 */
+.rf-close { position:relative; isolation:isolate; overflow:hidden; width:calc(100% - var(--gutter) * 2); max-width:calc(var(--container) - var(--gutter) * 2); margin:24px auto 56px; padding:56px 56px !important; border:0 !important; border-radius:28px; }
+.rf-close::before { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,rgba(250,251,246,.95) 0%,rgba(250,251,246,.82) 50%,rgba(250,251,246,.5) 100%),url('/navisolution-preview2/assets/img/aerial/garden-world.webp') 50% 62%/cover; }
+.rf-close h2 { font-size:30px; }
+.rf-close p { color:var(--g700) !important; }
+
+/* 푸터 — 정원 안개 사진 위 */
+.footer { position:relative; isolation:isolate; background:transparent; }
+.footer::before { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg,rgba(236,242,232,.9),rgba(236,242,232,.82)),url('/navisolution-preview2/assets/img/section/garden-haze.webp') center/cover; }
+
+@media (max-width:899px) {
+  .rf-statement { min-height:300px; }
+  .rf-close { padding:40px 32px !important; }
+}
+@media (max-width:599px) {
+  .rf-statement { min-height:260px; padding:26px !important; border-radius:18px; }
+  .rf-statement>p { font-size:23px !important; }
+  .rf-close { margin:12px auto 40px; padding:30px 22px !important; border-radius:20px; }
+  .rf-close::before { background:linear-gradient(180deg,rgba(250,251,246,.95) 0%,rgba(250,251,246,.86) 60%,rgba(250,251,246,.5) 100%),url('/navisolution-preview2/assets/img/aerial/garden-world.webp') 60% 60%/cover; }
+  .rf-close h2 { font-size:24px; }
+}
+.rf-close .btn--primary { background:var(--garden); border-color:var(--garden); }
+@media (hover:hover) and (pointer:fine) { .rf-close .btn--primary:hover { background:var(--garden-hover); border-color:var(--garden-hover); } }
+
+/* ── 업소 지원 칸 — 번호 대신 Codex 그림, 한 장의 유리판을 다섯 칸으로 나눔 ── */
+.support-icon { display:block; width:76px; height:76px; }
+.rf-support__steps { gap:0; margin-top:56px; overflow:hidden; border:1px solid rgba(36,87,68,.12); border-radius:24px; background:rgba(255,255,255,.8); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); box-shadow:0 30px 60px -48px rgba(36,64,52,.5); }
+/* 칸 사이 선은 그림자로 그려, 판 바깥으로 나간 선은 overflow 로 잘린다(몇 열이든 그대로) */
+.rf-support__steps li { display:flex; flex-direction:column; padding:28px 26px 32px; border:0; border-radius:0; background:transparent; -webkit-backdrop-filter:none; backdrop-filter:none; box-shadow:-1px 0 0 rgba(36,87,68,.1), 0 -1px 0 rgba(36,87,68,.1); transition:background-color .2s ease; }
+.rf-support__steps .support-icon { margin:0 0 18px -8px; transition:transform .3s cubic-bezier(.2,.8,.2,1); }
+.rf-support__steps h3 { color:var(--garden); }
+
+/* 참여 업소 혜택 — 정원 사진 위 짙은 녹색 */
+.rf-benefits { border:0; box-shadow:0 30px 60px -40px rgba(20,50,38,.55); }
+.rf-benefits::before { background:linear-gradient(110deg,rgba(26,64,50,.95) 0%,rgba(33,82,64,.88) 55%,rgba(48,96,72,.74) 100%),url('/navisolution-preview2/assets/img/section/garden-haze.webp') center/cover; }
+.rf-benefits>div { padding:36px 36px 38px; }
+.rf-benefits>div+div { border-left-color:rgba(255,255,255,.13); }
+.rf-benefits h3 { color:#f3f0e2; font-size:24px; }
+.rf-benefits li { color:rgba(236,242,232,.86); }
+.rf-benefits li::before { border-color:#b9d6ad; }
+
+@media (hover:hover) and (pointer:fine) {
+  .rf-support__steps li:hover { transform:none; box-shadow:-1px 0 0 rgba(36,87,68,.1), 0 -1px 0 rgba(36,87,68,.1); background:rgba(255,255,255,.7); }
+  .rf-support__steps li:hover .support-icon { transform:translateY(-4px) rotate(-2deg); }
+}
+@media (max-width:1099px) {
+  .rf-support__steps li:last-child { grid-column:span 2; }
+}
+@media (max-width:899px) {
+  .rf-benefits>div+div { border-top-color:rgba(255,255,255,.13); }
+}
+@media (max-width:599px) {
+  .rf-support__steps { border-radius:20px; }
+  .rf-support__steps li { display:grid; grid-template-columns:56px 1fr; column-gap:14px; padding:18px 18px 18px 14px; border-radius:0; }
+  .rf-support__steps li:last-child { grid-column:auto; }
+  .rf-support__steps .support-icon { grid-row:1 / span 3; width:56px; height:56px; margin:0; }
+  .rf-benefits>div { padding:24px 22px 26px; }
+}
+@media (prefers-reduced-motion:reduce) { .rf-support__steps .support-icon { transition:none; } }
+
+/* ── 나비프로젝트 — 섹션마다 실사 질감 위 유리판 ── */
+.x-page--navi .a-join { padding-block:56px 64px; }
+.x-page--navi .a-join__choice { position:relative; isolation:isolate; overflow:hidden; display:flex; padding:34px 32px 30px; border:0; border-radius:22px; box-shadow:0 26px 50px -38px rgba(30,50,40,.55); }
+.x-page--navi .a-join__choice--store,.x-page--navi .a-join__choice--store h3 { color:#f6f3e8; }
+.x-page--navi .a-join__choice--store p { color:rgba(236,242,232,.84); }
+.x-page--navi .a-join__choice--store .x-link { color:#fff; border-bottom:1px solid rgba(255,255,255,.45); }
+.x-page--navi .a-join__choice--store a:focus-visible { outline-color:#fff; }
+.x-page--navi .a-join__choice--partner h3 { color:var(--partner); }
+.x-page--navi .a-join__choice--partner p { color:var(--partner-hover); }
+.x-page--navi .a-join__choice::before { content:''; position:absolute; inset:0; z-index:-1; background-size:cover; background-position:center; }
+.x-page--navi .a-join__choice--store { background:#1f4a3a; }
+.x-page--navi .a-join__choice--store::before { background-image:linear-gradient(160deg,rgba(26,64,50,.94) 0%,rgba(30,74,58,.86) 55%,rgba(36,87,68,.62) 100%),url('/navisolution-preview2/assets/img/aerial/garden-world.webp'); background-position:60% 70%; }
+.x-page--navi .a-join__choice--partner { background:#f3edf2; }
+.x-page--navi .a-join__choice--partner::before { background-image:linear-gradient(160deg,rgba(248,243,247,.95) 0%,rgba(244,236,242,.88) 60%,rgba(240,230,238,.7) 100%),url('/navisolution-preview2/assets/img/rebuild/partner-table.webp'); }
+
+.x-page--navi .x-page-nav { justify-content:flex-start; gap:4px; width:max-content; max-width:calc(100% - var(--gutter) * 2); margin-block:8px 0; padding:6px; border:1px solid rgba(36,87,68,.12); border-radius:16px; background:rgba(255,255,255,.78); box-shadow:0 14px 30px -26px rgba(36,64,52,.5); }
+.x-page--navi .x-page-nav a { display:inline-flex; align-items:center; min-height:42px; padding:0 16px; border-radius:11px; color:var(--g700); font-size:14px; transition:background-color .18s ease, color .18s ease; }
+
+.x-page--navi .x-support__list,.x-page--navi .x-faq__list { padding:8px 36px; border:1px solid rgba(36,87,68,.12); border-radius:24px; background:rgba(255,255,255,.74); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); box-shadow:0 30px 60px -48px rgba(36,64,52,.5); }
+.x-page--navi .x-support__item { margin:0; padding:0; border-top:0; border-bottom:1px solid rgba(36,87,68,.1); }
+.x-page--navi .x-support__item:last-child { border-bottom:0; }
+.x-page--navi .x-support__item summary { gap:18px; min-height:0; padding:22px 0 6px; }
+.x-page--navi .x-faq__list .x-support__item summary { padding:22px 0; }
+.x-page--navi .x-support__item summary h3 { flex:1; color:var(--garden); }
+.x-page--navi .x-support__item summary .support-icon { flex:none; width:64px; height:64px; margin:-6px 0 -6px -6px; }
+.x-page--navi .x-support__list .sentence-copy { margin:0 0 0 76px; padding-bottom:22px; }
+.x-page--navi .x-faq__list .x-support__item>p { padding:0 0 22px; }
+.x-page--navi .a-support-photo img { border-radius:22px; box-shadow:0 26px 50px -36px rgba(36,64,52,.55); }
+
+.nv-benefits { padding-block:8px 72px; }
+.nv-benefits__panel { grid-template-columns:minmax(0,.85fr) repeat(3,minmax(0,1fr)); margin:0; }
+.nv-benefits__panel h2 { margin:0; padding:36px 36px 38px; color:#fff !important; font:400 30px/1.4 var(--display) !important; }
+
+.x-page--navi .x-business__services { padding:4px 40px; border:1px solid rgba(36,87,68,.12); border-radius:24px; background:rgba(255,255,255,.74); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); box-shadow:0 30px 60px -48px rgba(36,64,52,.5); }
+.x-page--navi .x-business__service { border-color:rgba(36,87,68,.1); }
+.x-page--navi .x-business__service:first-child { border-top:0; }
+.x-page--navi .x-business__service:last-child { border-bottom:0; }
+.x-page--navi .x-business__service dt strong { color:var(--garden); }
+.x-page--navi .x-business__status { display:inline-flex; align-items:center; gap:8px; margin-top:10px; padding:0; background:none; border:0; border-radius:0; color:var(--harvest); font-size:13px; font-weight:500; }
+.x-page--navi .x-business__status::before { content:''; width:6px; height:6px; border-radius:50%; background:currentColor; opacity:.7; }
+.x-page--navi .x-business__empty { background:rgba(245,236,214,.45); border:1px dashed var(--harvest-line); border-radius:14px; }
+
+/* 이야기 — 주방 사진 위 문장 */
+.nv-story { padding-block:24px 72px; }
+.nv-story__frame { position:relative; isolation:isolate; overflow:hidden; display:grid; align-content:space-between; gap:48px; min-height:540px; padding:clamp(32px,5vw,64px); border-radius:28px; background:#1d2a23; box-shadow:0 34px 70px -44px rgba(20,30,24,.7); }
+.nv-story__frame>img { position:absolute; inset:0; z-index:-2; width:100%; height:100%; object-fit:cover; object-position:60% 50%; }
+.nv-story__frame::before { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,rgba(18,30,24,.9) 0%,rgba(18,30,24,.74) 42%,rgba(18,30,24,.25) 100%); }
+.nv-story__copy { max-width:560px; color:#f4f1e6; }
+.nv-story__copy h2 { margin:0; color:#fbf8ee !important; font:400 clamp(28px,3.2vw,40px)/1.35 var(--display) !important; text-wrap:balance; }
+.nv-story__sub { margin-top:14px; color:#cfe1c6; font-size:15px; }
+.nv-story__lead { margin-top:28px; font-size:18px; line-height:1.85; color:rgba(244,241,230,.92); word-break:keep-all; }
+.nv-story__kicker { margin-top:10px; font-size:15px; color:rgba(244,241,230,.72); }
+.nv-story__pillars { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin:0; padding:0; list-style:none; border-top:1px solid rgba(255,255,255,.2); }
+.nv-story__pillars li { padding:18px 16px 0 0; color:rgba(244,241,230,.9); font-size:15px; word-break:keep-all; }
+.nv-story__pillars li+li { padding-left:18px; border-left:1px solid rgba(255,255,255,.14); }
+
+/* 개인 파트너 — 순서가 있는 네 단계 */
+.x-page--navi .x-partner__list { counter-reset:step; gap:12px; margin:0; padding:0; list-style:none; }
+.x-page--navi .x-partner__item { counter-increment:step; display:flex; align-items:center; gap:16px; padding:20px 22px; border:1px solid var(--partner-line); border-radius:18px; background:rgba(255,255,255,.76); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); }
+.x-page--navi .x-partner__item::before { content:counter(step); flex:none; font:400 26px/1 var(--display); color:var(--partner); opacity:.75; font-variant-numeric:tabular-nums; }
+.x-page--navi .x-partner__item h3 { margin:0; font-size:17px; color:var(--partner-hover); }
+
+.x-page--navi .x-products { padding-block:64px; }
+.nv-close h2 { max-width:640px; }
+.nv-close__values { display:flex; flex-wrap:wrap; gap:6px 18px; margin:14px 0 0; padding:0; list-style:none; color:var(--g500); font-size:13px; }
+
+@media (hover:hover) and (pointer:fine) {
+  .x-page--navi .x-page-nav a:hover { background:var(--garden-soft); color:var(--garden); }
+}
+.x-page--navi .x-page-nav a:active { background:var(--garden-soft); }
+@media (max-width:1099px) {
+  .nv-benefits__panel { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .nv-benefits__panel h2 { grid-column:1 / -1; padding-bottom:0; }
+  .nv-benefits__panel h2+div { border-left:0; }
+}
+@media (max-width:899px) {
+  .nv-benefits__panel { grid-template-columns:1fr; }
+  .nv-benefits__panel h2+div { border-top:0; }
+  .nv-story__frame { min-height:0; }
+  .nv-story__frame::before { background:linear-gradient(180deg,rgba(18,30,24,.55) 0%,rgba(18,30,24,.86) 60%,rgba(18,30,24,.92) 100%); }
+  .nv-story__pillars { grid-template-columns:1fr 1fr; row-gap:4px; }
+  .nv-story__pillars li:nth-child(3) { padding-left:0; border-left:0; }
+}
+@media (max-width:599px) {
+  .x-page--navi .a-join { padding-block:36px 44px; }
+  .x-page--navi .x-page-nav { width:auto; overflow-x:auto; scrollbar-width:none; flex-wrap:nowrap; }
+  .x-page--navi .x-page-nav a { flex:none; padding:0 12px; font-size:13px; }
+  .x-page--navi .x-support__list,.x-page--navi .x-faq__list,.x-page--navi .x-business__services { padding:2px 20px; border-radius:20px; }
+  .x-page--navi .x-support__item summary .support-icon { width:52px; height:52px; }
+  .x-page--navi .x-support__list .sentence-copy { margin-left:64px; }
+  .nv-benefits { padding-bottom:48px; }
+  .nv-benefits__panel h2 { padding:26px 22px 0; font-size:25px !important; }
+  .nv-story { padding-bottom:48px; }
+  .nv-story__frame { gap:32px; padding:28px 22px; border-radius:20px; }
+  .nv-story__lead { font-size:16px; }
+  .nv-story__pillars li { font-size:14px; }
+  .x-page--navi .x-partner__list { grid-template-columns:1fr; }
+}
+
+/* ── Harisu Mall 상단 분류 — 큰 분류는 유리 스위치, 종류는 밑줄 탭 ── */
+.n-collection .n-collection-nav { display:flex; flex-wrap:nowrap; gap:4px; width:max-content; max-width:100%; margin:18px 0 0; padding:5px; overflow-x:auto; scrollbar-width:none; border:1px solid rgba(36,87,68,.13); border-radius:16px; background:rgba(255,255,255,.8); box-shadow:0 14px 30px -26px rgba(36,64,52,.5); }
+.n-collection .n-collection-nav a { display:inline-flex; align-items:center; gap:8px; flex:none; min-height:44px; margin:0; padding:0 20px; border:0; border-radius:11px; color:var(--g700); font-size:15px; font-weight:500; transition:background-color .18s ease, color .18s ease; }
+.n-collection .n-collection-nav a small { font-size:12px; font-weight:500; color:var(--g400); font-variant-numeric:tabular-nums; }
+.n-collection .n-collection-nav a.is-active { background:var(--garden); color:#fff; box-shadow:0 8px 16px -10px rgba(26,64,50,.7); }
+.n-collection .n-collection-nav a.is-active small { color:rgba(255,255,255,.72); }
+.n-collection .a-hall-nav { gap:26px; margin:22px 0 18px; border-bottom:1px solid var(--g200); }
+.n-collection .a-hall-nav a,.n-collection .a-hall-nav a:nth-child(2) { flex:none; min-width:0; min-height:44px; margin-bottom:-1px; padding:0 2px; border:0; border-bottom:2px solid transparent; border-radius:0; background:none; color:var(--g500); font-size:15px; font-weight:500; }
+.n-collection .a-hall-nav a[aria-current] { background:none; border-color:var(--garden); color:var(--garden); font-weight:600; }
+@media (hover:hover) and (pointer:fine) {
+  .n-collection .n-collection-nav a:not(.is-active):hover { background:var(--garden-soft); color:var(--garden); }
+  .n-collection .a-hall-nav a:not([aria-current]):hover { color:var(--garden); border-color:var(--g300); }
+}
+.n-collection .n-collection-nav a:not(.is-active):active { background:var(--garden-soft); }
+@media (max-width:599px) {
+  .n-collection .n-collection-nav { width:100%; }
+  .n-collection .n-collection-nav a { flex:1; justify-content:center; padding:0 10px; font-size:14px; }
+  .n-collection .a-hall-nav { gap:20px; }
+}

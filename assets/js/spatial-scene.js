@@ -205,8 +205,11 @@ export function createSpatialScene(container, options = {}) {
       group.position.set(worldWidth * (x + pointer.x * .003),worldHeight * screenY,depth);
       group.scale.setScalar(worldWidth * pixels / width / 5.2);
       const travelLean = THREE.MathUtils.clamp(-dx * width / height * .9,-.24,.24);
-      group.rotation.set(.09 + Math.sin(t * 1.3) * .045 + stroke.lift * .022,
-        -Math.sin(t) * rx * 1.15,roll + travelLean);
+      // Face the camera wherever the butterfly is on screen; off-axis perspective otherwise
+      // turns one folding wing edge-on while the other stays open, so only one side seems to beat.
+      const distance = camera.position.z - depth;
+      group.rotation.set(.09 + Math.sin(t * 1.3) * .045 + stroke.lift * .022 - Math.atan2(group.position.y,distance),
+        -Math.sin(t) * rx * 1.15 + Math.atan2(group.position.x,distance),roll + travelLean);
       hinges.forEach(({hinge,side}) => {
         // Slight left/right timing differences remain bounded inside each burst.
         const sideStroke = sampleFlightStroke(motion,side * .004);
