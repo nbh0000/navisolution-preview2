@@ -174,17 +174,18 @@
 .x-page--navi .a-support-photo img { border-radius:22px; box-shadow:0 26px 50px -36px rgba(36,64,52,.55); }
 
 .nv-benefits { padding-block:8px 72px; }
-/* 혜택 — 왼쪽 식탁 사진 위 제목, 오른쪽 세 줄 */
+/* 혜택 — 왼쪽 식탁 사진 위 제목, 오른쪽 세 줄 (나비프로젝트·홈 업소 지원 공용) */
+.rf-support__benefits { margin-top:20px; }
 .nv-benefits__panel { position:relative; isolation:isolate; overflow:hidden; display:grid; grid-template-columns:minmax(260px,.8fr) minmax(0,2fr); border-radius:26px; background:#1f4a3a; box-shadow:0 34px 70px -46px rgba(20,50,38,.7); }
 .nv-benefits__panel::before { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(100deg,rgba(28,66,51,.96),rgba(31,72,56,.93)),url('/navisolution-preview2/assets/img/section/garden-haze.webp') center/cover; }
 .nv-benefits__photo { position:relative; display:flex; align-items:flex-end; min-height:100%; padding:32px 34px; overflow:hidden; }
 .nv-benefits__photo img { position:absolute; inset:0; z-index:-1; width:100%; height:100%; object-fit:cover; object-position:40% 50%; }
 .nv-benefits__photo::after { content:''; position:absolute; inset:0; z-index:0; background:linear-gradient(180deg,rgba(20,44,34,.05) 30%,rgba(20,44,34,.82) 100%),linear-gradient(90deg,transparent 70%,rgba(28,66,51,.9)); }
-.nv-benefits__photo h2 { position:relative; z-index:1; margin:0; color:#fbf8ee !important; font:400 clamp(26px,2.4vw,32px)/1.35 var(--display) !important; white-space:nowrap; }
+.nv-benefits__photo h2,.nv-benefits__photo h3 { position:relative; z-index:1; margin:0; color:#fbf8ee !important; font:400 clamp(26px,2.4vw,32px)/1.35 var(--display) !important; white-space:nowrap; }
 .nv-benefits__rows { padding:10px clamp(28px,3.4vw,48px); }
 .nv-benefits__row { display:grid; grid-template-columns:minmax(150px,.7fr) minmax(0,2fr); align-items:baseline; gap:24px; padding:26px 0; }
 .nv-benefits__row+.nv-benefits__row { border-top:1px solid rgba(255,255,255,.12); }
-.nv-benefits__row h3 { margin:0; color:#f3f0e2; font:400 22px/1.4 var(--display); }
+.nv-benefits__row h3,.nv-benefits__row h4 { margin:0; color:#f3f0e2; font:400 22px/1.4 var(--display); }
 .nv-benefits__row ul { display:flex; flex-wrap:wrap; gap:8px 26px; margin:0; padding:0; list-style:none; }
 .nv-benefits__row li { position:relative; padding-left:22px; color:rgba(236,242,232,.86); font-size:15px; line-height:1.7; word-break:keep-all; }
 .nv-benefits__row li::before { content:''; position:absolute; left:2px; top:.52em; width:10px; height:6px; border:solid #b9d6ad; border-width:0 0 1.6px 1.6px; transform:rotate(-45deg); }
@@ -256,7 +257,7 @@
   .nv-benefits { padding-bottom:48px; }
   .nv-benefits__panel { border-radius:20px; }
   .nv-benefits__photo { min-height:160px; padding:22px; }
-  .nv-benefits__photo h2 { font-size:25px !important; }
+  .nv-benefits__photo h2,.nv-benefits__photo h3 { font-size:25px !important; }
   .nv-benefits__rows { padding:4px 22px 8px; }
   .nv-benefits__row ul { flex-direction:column; gap:6px; }
   .nv-benefits__row li { font-size:14px; }
